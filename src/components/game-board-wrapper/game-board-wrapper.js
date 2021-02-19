@@ -3,9 +3,9 @@ import './game-board-wrapper.scss';
 import Card from '../card/card';
 
 export default function GameBoardWrapper (props) {
-    const cardElements = props.cards.map((color) => {
+    const cardElements = props.cards.map((item) => {
         return (
-            <Card color = {color}/>
+            <Card item = {item}/>
         );
     });
     return (
