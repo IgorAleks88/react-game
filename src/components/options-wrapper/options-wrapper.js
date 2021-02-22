@@ -7,15 +7,19 @@ export default function OptionsWrapper (props) {
         <div className = "options-wrapper">
             <span>This is options wrapper</span>
             <Button name = "Start"
-                onClick = {() => props.createNewGame()}/>
+                onClick = {() => props.startNewGame()}/>
             <Button name = "Football"
                 onClick = {() => {
-                    props.setCategory('football');
-                    // console.log(props.category);
+                    props.changeCategory('football');
                 }}/>
             <Button name = "Cars"
-                onClick = {() => props.setCategory('cars')}/>
-            <span>{props.category}</span>
+                onClick = {() => props.changeCategory('cars')}/>
+            <Button name = "6"
+                onClick = {() => props.changeDifficulty(6)}/>
+            <Button name = "9"
+                onClick = {() => props.changeDifficulty(9)}/>
+            <Button name = "12"
+                onClick = {() => props.changeDifficulty(12)}/>
         </div>
     );
 }

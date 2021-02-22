@@ -10,7 +10,7 @@ export default function GameBoardWrapper (props) {
         );
     });
     return (
-        <div className = "game-board-wrapper">
+        <div className = "game-board-wrapper game-board-wrapper__18">
             {cardElements}
         </div>
     );
