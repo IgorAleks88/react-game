@@ -6,7 +6,8 @@ export default function OptionsWrapper (props) {
     return (
         <div className = "options-wrapper">
             <span>This is options wrapper</span>
-            <Button name = "Start" />
+            <Button name = "Start"
+                onClick = {() => props.createNewGame()}/>
             <Button name = "Football"
                 onClick = {() => {
                     props.setCategory('football');
