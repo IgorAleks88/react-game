@@ -13,6 +13,7 @@ export default function Card (props) {
     function backClick (e) {
         const container = e.target.closest('.card-container');
         if (container.dataset.active && !props.secondOpened) {
+            props.incrementTurnsCounter();
             container.classList.add('card-container__rotate');
             if (props.firstOpened) {
                 props.changeSecondOpened(container);
@@ -54,6 +55,7 @@ Card.propTypes = {
     category: PropTypes.string,
     cards: PropTypes.array,
     firstOpened: PropTypes.object,
+    incrementTurnsCounter: PropTypes.func,
     item: PropTypes.string,
     secondOpened: PropTypes.object
 };

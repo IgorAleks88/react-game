@@ -12,7 +12,8 @@ export default function GameBoardWrapper (props) {
                 changeFirstOpened= {props.changeFirstOpened}
                 firstOpened = {props.firstOpened}
                 changeSecondOpened = {props.changeSecondOpened}
-                secondOpened = {props.secondOpened}/>
+                secondOpened = {props.secondOpened}
+                incrementTurnsCounter = {props.incrementTurnsCounter}/>
         );
     });
     return (
@@ -28,5 +29,6 @@ GameBoardWrapper.propTypes = {
     category: PropTypes.string,
     cards: PropTypes.array,
     firstOpened: PropTypes.object,
+    incrementTurnsCounter: PropTypes.func,
     secondOpened: PropTypes.object
 };

@@ -6,7 +6,7 @@ import Button from '../button/button';
 export default function OptionsWrapper (props) {
     return (
         <div className = "options-wrapper">
-            <span>This is options wrapper</span>
+            <span>Turns: {props.turnsCounter}</span>
             <Button name = "Start"
                 onClick = {() => props.startNewGame()}/>
             <Button name = "Football"
@@ -28,5 +28,6 @@ export default function OptionsWrapper (props) {
 OptionsWrapper.propTypes = {
     startNewGame: PropTypes.func,
     changeCategory: PropTypes.func,
-    changeDifficulty: PropTypes.func
+    changeDifficulty: PropTypes.func,
+    turnsCounter: PropTypes.number
 };
