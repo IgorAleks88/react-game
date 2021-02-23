@@ -11,19 +11,18 @@ export default function App () {
         '10', '11', '12', '13', '14', '15', '16', '17', '18']);
     const [category, setCategory] = useState('football');
     const [difficulty, setDifficulty] = useState(9);
+    const [firstOpened, setFirstOpened] = useState(null);
 
     function changeDifficulty (num) {
         setDifficulty(num);
-        /* const wrapper = document.querySelector('.game-board-wrapper');
-        wrapper.classList.remove('game-board-wrapper__12');
-        wrapper.classList.remove('game-board-wrapper__18');
-        wrapper.classList.remove('game-board-wrapper__24');
-        wrapper.classList.add(`game-board-wrapper__${num * 2}`);
-        startNewGame(); */
     }
 
     function changeCategory (name) {
         setCategory(name);
+    }
+
+    function changeFirstOpened (card) {
+        setFirstOpened(card);
     }
 
     function startNewGame () {
@@ -43,7 +42,10 @@ export default function App () {
                 changeCategory = {changeCategory}
                 category = {category}
                 startNewGame = {startNewGame}/>
-            <GameBoardWrapper cards = {gameArray} category = {category} />
+            <GameBoardWrapper cards = {gameArray}
+                category = {category}
+                changeFirstOpened= {changeFirstOpened}
+                firstOpened = {firstOpened}/>
         </div>
     );
 }

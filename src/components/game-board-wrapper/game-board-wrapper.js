@@ -6,7 +6,10 @@ export default function GameBoardWrapper (props) {
     const category = props.category;
     const cardElements = props.cards.map((item) => {
         return (
-            <Card item = {item} category = {category}/>
+            <Card item = {item}
+                category = {category}
+                changeFirstOpened= {props.changeFirstOpened}
+                firstOpened = {props.firstOpened}/>
         );
     });
     return (
