@@ -9,7 +9,9 @@ export default function GameBoardWrapper (props) {
             <Card item = {item}
                 category = {category}
                 changeFirstOpened= {props.changeFirstOpened}
-                firstOpened = {props.firstOpened}/>
+                firstOpened = {props.firstOpened}
+                changeSecondOpened = {props.changeSecondOpened}
+                secondOpened = {props.secondOpened}/>
         );
     });
     return (

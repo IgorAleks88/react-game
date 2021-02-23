@@ -12,6 +12,7 @@ export default function App () {
     const [category, setCategory] = useState('football');
     const [difficulty, setDifficulty] = useState(9);
     const [firstOpened, setFirstOpened] = useState(null);
+    const [secondOpened, setSecondOpened] = useState(null);
 
     function changeDifficulty (num) {
         setDifficulty(num);
@@ -23,6 +24,10 @@ export default function App () {
 
     function changeFirstOpened (card) {
         setFirstOpened(card);
+    }
+
+    function changeSecondOpened (card) {
+        setSecondOpened(card);
     }
 
     function startNewGame () {
@@ -45,7 +50,9 @@ export default function App () {
             <GameBoardWrapper cards = {gameArray}
                 category = {category}
                 changeFirstOpened= {changeFirstOpened}
-                firstOpened = {firstOpened}/>
+                firstOpened = {firstOpened}
+                changeSecondOpened = {changeSecondOpened}
+                secondOpened = {secondOpened}/>
         </div>
     );
 }

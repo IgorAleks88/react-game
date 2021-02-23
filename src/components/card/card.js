@@ -11,18 +11,21 @@ export default function Card (props) {
 
     function backClick (e) {
         const container = e.target.closest('.card-container');
-        if (container.dataset.active) {
+        if (container.dataset.active && !props.secondOpened) {
             container.classList.add('card-container__rotate');
             if (props.firstOpened) {
+                props.changeSecondOpened(container);
                 if (container.dataset.item === props.firstOpened.dataset.item) {
                     container.dataset.active = false;
                     props.firstOpened.dataset.active = false;
                     props.changeFirstOpened(null);
+                    props.changeSecondOpened(null);
                 } else {
                     setTimeout(() => {
                         container.classList.remove('card-container__rotate');
                         props.firstOpened.classList.remove('card-container__rotate');
                         props.changeFirstOpened(null);
+                        props.changeSecondOpened(null);
                     }, 1000);
                 }
             } else {
