@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './options-wrapper.scss';
 import Button from '../button/button';
 
@@ -23,3 +24,9 @@ export default function OptionsWrapper (props) {
         </div>
     );
 }
+
+OptionsWrapper.propTypes = {
+    startNewGame: PropTypes.func,
+    changeCategory: PropTypes.func,
+    changeDifficulty: PropTypes.func
+};

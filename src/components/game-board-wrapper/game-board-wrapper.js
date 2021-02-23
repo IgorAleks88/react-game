@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './game-board-wrapper.scss';
 import Card from '../card/card';
 
@@ -20,3 +21,12 @@ export default function GameBoardWrapper (props) {
         </div>
     );
 }
+
+GameBoardWrapper.propTypes = {
+    changeFirstOpened: PropTypes.func,
+    changeSecondOpened: PropTypes.func,
+    category: PropTypes.string,
+    cards: PropTypes.array,
+    firstOpened: PropTypes.object,
+    secondOpened: PropTypes.object
+};

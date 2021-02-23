@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './card.scss';
 
 export default function Card (props) {
@@ -46,3 +47,13 @@ export default function Card (props) {
         </div>
     );
 }
+
+Card.propTypes = {
+    changeFirstOpened: PropTypes.func,
+    changeSecondOpened: PropTypes.func,
+    category: PropTypes.string,
+    cards: PropTypes.array,
+    firstOpened: PropTypes.object,
+    item: PropTypes.string,
+    secondOpened: PropTypes.object
+};
