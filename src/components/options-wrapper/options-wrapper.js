@@ -21,6 +21,8 @@ export default function OptionsWrapper (props) {
                 onClick = {() => props.changeDifficulty(9)}/>
             <Button name = "12"
                 onClick = {() => props.changeDifficulty(12)}/>
+            <Button name = "Autoplay"
+                onClick = {() => props.autoPlay(props.gameArray)}/>
         </div>
     );
 }

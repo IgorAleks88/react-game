@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import OptionsWrapper from '../options-wrapper/options-wrapper';
 import GameBoardWrapper from '../game-board-wrapper/game-board-wrapper';
 import shuffleArray from '../../utils/shuffleArray';
+import autoPlay from '../../utils/autoPlay';
 
 export default function App () {
     const cardsArray = ['1', '2', '3', '4', '5', '6', '7', '8', '9',
@@ -65,7 +66,8 @@ export default function App () {
                 changeDifficulty = {changeDifficulty}
                 changeCategory = {changeCategory}
                 category = {category}
-
+                autoPlay = {autoPlay}
+                gameArray = {gameArray}
                 startNewGame = {startNewGame}
                 turnsCounter = {turnsCounter}/>
             <GameBoardWrapper cards = {gameArray}
