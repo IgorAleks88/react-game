@@ -14,10 +14,10 @@ import autoPlay from '../../utils/autoPlay';
 export default function App () {
     const cardsArray = ['1', '2', '3', '4', '5', '6', '7', '8', '9',
         '10', '11', '12', '13', '14', '15', '16', '17', '18'];
-    const [gameArray, setGameArray] = useState(['1', '2', '3', '4', '5', '6', '7', '8', '9',
-        '1', '2', '3', '4', '5', '6', '7', '8', '9']);
+    const [gameArray, setGameArray] = useState(['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12',
+        '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']);
     const [category, setCategory] = useState('football');
-    const [difficulty, setDifficulty] = useState(9);
+    const [difficulty, setDifficulty] = useState(12);
     const [firstOpened, setFirstOpened] = useState(null);
     const [secondOpened, setSecondOpened] = useState(null);
     const [turnsCounter, setTurnsCounter] = useState(0);
@@ -52,10 +52,12 @@ export default function App () {
         // change game wrapper style depends on difficulty level
 
         const wrapper = document.querySelector('.game-board-wrapper');
-        wrapper.classList.remove('game-board-wrapper__12');
-        wrapper.classList.remove('game-board-wrapper__18');
-        wrapper.classList.remove('game-board-wrapper__24');
-        wrapper.classList.add(`game-board-wrapper__${difficulty * 2}`);
+        if (wrapper) {
+            wrapper.classList.remove('game-board-wrapper__12');
+            wrapper.classList.remove('game-board-wrapper__18');
+            wrapper.classList.remove('game-board-wrapper__24');
+            wrapper.classList.add(`game-board-wrapper__${difficulty * 2}`);
+        }
 
         // set all cards data-active true
         const cardObjects = document.querySelectorAll('.card-container');

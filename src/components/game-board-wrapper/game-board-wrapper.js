@@ -5,9 +5,10 @@ import Card from '../card/card';
 
 export default function GameBoardWrapper (props) {
     const category = props.category;
-    const cardElements = props.cards.map((item) => {
+    const cardElements = props.cards.map((item, index) => {
         return (
-            <Card item = {item}
+            <Card key = {index}
+                item = {item}
                 category = {category}
                 changeFirstOpened= {props.changeFirstOpened}
                 firstOpened = {props.firstOpened}
@@ -17,7 +18,7 @@ export default function GameBoardWrapper (props) {
         );
     });
     return (
-        <div className = "game-board-wrapper game-board-wrapper__18">
+        <div className = "game-board-wrapper game-board-wrapper__24">
             {cardElements}
         </div>
     );
