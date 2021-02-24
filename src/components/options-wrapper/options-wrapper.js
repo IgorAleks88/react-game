@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import PropTypes from 'prop-types';
 import './options-wrapper.scss';
 import Button from '../button/button';
@@ -7,8 +8,10 @@ export default function OptionsWrapper (props) {
     return (
         <div className = "options-wrapper">
             <span>Turns: {props.turnsCounter}</span>
-            <Button name = "Start"
-                onClick = {() => props.startNewGame()}/>
+            <Link to="/game">
+                <Button name = "Start"
+                    onClick = {() => props.startNewGame()}/>
+            </Link>
             <Button name = "Football"
                 onClick = {() => {
                     props.changeCategory('football');
@@ -23,6 +26,9 @@ export default function OptionsWrapper (props) {
                 onClick = {() => props.changeDifficulty(12)}/>
             <Button name = "Autoplay"
                 onClick = {() => props.autoPlay(props.gameArray)}/>
+            <Link to="/stat">
+                <Button name = "Statistic" />
+            </Link>
         </div>
     );
 }
