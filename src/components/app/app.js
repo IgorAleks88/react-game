@@ -20,17 +20,29 @@ export default function App () {
     const [firstOpened, setFirstOpened] = useState(null);
     const [secondOpened, setSecondOpened] = useState(null);
     const [turnsCounter, setTurnsCounter] = useState(0);
+    const [optionsWrapperClass, setOptionsWrapperClass] = useState('options-wrapper options-wrapper__light');
 
     useEffect(() => {
         startNewGame();
     }, [difficulty, category]);
 
     function changeDifficulty (num) {
-        setDifficulty(num);
+        switch (num) {
+            case 'S': setDifficulty(6);
+                break;
+            case 'M': setDifficulty(9);
+                break;
+            case 'L': setDifficulty(12);
+                break;
+        }
     }
 
     function changeCategory (name) {
         setCategory(name);
+    }
+
+    function changeInterface (name) {
+        setOptionsWrapperClass(`options-wrapper options-wrapper__${name}`);
     }
 
     function changeFirstOpened (card) {
@@ -75,8 +87,10 @@ export default function App () {
         <Router>
             <div className = "main-wrapper">
                 <OptionsWrapper
+                    optionsWrapperClass = {optionsWrapperClass}
                     changeDifficulty = {changeDifficulty}
                     changeCategory = {changeCategory}
+                    changeInterface = {changeInterface}
                     category = {category}
                     autoPlay = {autoPlay}
                     gameArray = {gameArray}
