@@ -26,11 +26,24 @@ export default function App () {
     }, [difficulty, category]);
 
     function changeDifficulty (num) {
-        setDifficulty(num);
+        switch (num) {
+            case 'S': setDifficulty(6);
+                break;
+            case 'M': setDifficulty(9);
+                break;
+            case 'L': setDifficulty(12);
+                break;
+        }
     }
 
     function changeCategory (name) {
         setCategory(name);
+    }
+
+    function changeInterface (name) {
+        document.querySelector('.options-wrapper').classList.remove('options-wrapper__dark');
+        document.querySelector('.options-wrapper').classList.remove('options-wrapper__light');
+        document.querySelector('.options-wrapper').classList.add(`options-wrapper__${name}`);
     }
 
     function changeFirstOpened (card) {
@@ -77,6 +90,7 @@ export default function App () {
                 <OptionsWrapper
                     changeDifficulty = {changeDifficulty}
                     changeCategory = {changeCategory}
+                    changeInterface = {changeInterface}
                     category = {category}
                     autoPlay = {autoPlay}
                     gameArray = {gameArray}
