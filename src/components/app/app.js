@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-// import ReactDOM from "react-dom";
+import React, { useEffect, useState } from 'react';
 import {
     BrowserRouter as Router,
     Switch,
@@ -21,6 +20,10 @@ export default function App () {
     const [firstOpened, setFirstOpened] = useState(null);
     const [secondOpened, setSecondOpened] = useState(null);
     const [turnsCounter, setTurnsCounter] = useState(0);
+
+    useEffect(() => {
+        startNewGame();
+    }, [difficulty, category]);
 
     function changeDifficulty (num) {
         setDifficulty(num);
