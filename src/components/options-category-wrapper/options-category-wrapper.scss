@@ -1,9 +1,11 @@
 .options-category-wrapper {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: flex-start;
     align-items: center;
     border: 1px solid black;
+    width: 12%;
+    height: 100%;
     &__header {
         color: blue;
     }

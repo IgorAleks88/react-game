@@ -1,4 +1,9 @@
 .button {
+    margin: 0.5rem;
     width: 5rem;
-    height: 2rem;
+    height: 1.5rem;
+    &__hidden {
+        visibility: hidden;
+    }
 }
+

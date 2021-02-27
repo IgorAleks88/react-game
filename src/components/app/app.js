@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import OptionsWrapper from '../options-wrapper/options-wrapper';
 import GameBoardWrapper from '../game-board-wrapper/game-board-wrapper';
+import FooterWrapper from '../footer-wrapper/footer-wrapper';
 import StatisticWrapper from '../statistic/statistic';
 import shuffleArray from '../../utils/shuffleArray';
 import autoPlay from '../../utils/autoPlay';
@@ -21,6 +22,7 @@ export default function App () {
     const [secondOpened, setSecondOpened] = useState(null);
     const [turnsCounter, setTurnsCounter] = useState(0);
     const [optionsWrapperClass, setOptionsWrapperClass] = useState('options-wrapper options-wrapper__light');
+    const [footerWrapperClass, setFooterWrapperClass] = useState('footer-wrapper footer-wrapper__light');
 
     useEffect(() => {
         startNewGame();
@@ -43,6 +45,7 @@ export default function App () {
 
     function changeInterface (name) {
         setOptionsWrapperClass(`options-wrapper options-wrapper__${name}`);
+        setFooterWrapperClass(`footer-wrapper footer-wrapper__${name}`);
     }
 
     function changeFirstOpened (card) {
@@ -110,6 +113,7 @@ export default function App () {
                         <StatisticWrapper />
                     </Route>
                 </Switch>
+                <FooterWrapper footerWrapperClass = {footerWrapperClass} />
             </div>
         </Router>
     );

@@ -22,26 +22,19 @@ export default function OptionsWrapper (props) {
 
     return (
         <div className = {props.optionsWrapperClass}>
-            <span>Turns: {props.turnsCounter}</span>
-            <Link to="/game">
-                <Button name = "Start"
-                    onClick = {() => props.startNewGame()}/>
-            </Link>
-            {/*<Button name = "Football"
-                onClick = {() => {
-                    props.changeCategory('football');
-                }}/>
-            <Button name = "Cars"
-                onClick = {() => props.changeCategory('cars')}/>
-             <Button name = "6"
-                onClick = {() => props.changeDifficulty(6)}/>
-            <Button name = "9"
-                onClick = {() => props.changeDifficulty(9)}/>
-            <Button name = "12"
-            onClick = {() => props.changeDifficulty(12)}/> */}
-            <Button name = "Autoplay"
-                onClick = {() => props.autoPlay(props.gameArray)}/>
+            <div className = "options-category-wrapper">
+                <span>Turns: {props.turnsCounter}</span>
+            </div>
+            <div className = "options-category-wrapper">
+                <span>Game</span>
+                <Link to="/game">
+                    <Button name = "Start"
+                        onClick = {() => props.startNewGame()}/>
+                </Link>
 
+                <Button name = "Autoplay"
+                    onClick = {() => props.autoPlay(props.gameArray)}/>
+            </div>
             <OptionsCategoryWrapper
                 categoryName = "Field size"
                 buttons = {fieldSizeButtons}/>
@@ -51,9 +44,14 @@ export default function OptionsWrapper (props) {
             <OptionsCategoryWrapper
                 categoryName = "Interface"
                 buttons = {interfaceButtons}/>
-            <Link to="/stat">
-                <Button name = "Statistic" />
-            </Link>
+            <div className = "options-category-wrapper">
+                <span>Audio</span>
+            </div>
+            <div className = "options-category-wrapper">
+                <Link to="/stat">
+                    <Button name = "Statistic" />
+                </Link>
+            </div>
         </div>
     );
 }
