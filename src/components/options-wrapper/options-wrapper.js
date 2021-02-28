@@ -57,8 +57,12 @@ export default function OptionsWrapper (props) {
 }
 
 OptionsWrapper.propTypes = {
+    autoPlay: PropTypes.func,
     startNewGame: PropTypes.func,
     changeCategory: PropTypes.func,
     changeDifficulty: PropTypes.func,
+    changeInterface: PropTypes.func,
+    gameArray: PropTypes.array,
+    optionsWrapperClass: PropTypes.string,
     turnsCounter: PropTypes.number
 };

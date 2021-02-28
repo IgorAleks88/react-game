@@ -25,8 +25,29 @@ export default function App () {
     const [footerWrapperClass, setFooterWrapperClass] = useState('footer-wrapper footer-wrapper__light');
 
     useEffect(() => {
+        document.addEventListener('keypress', keyPressHandler);
         startNewGame();
+        return () => {
+            document.removeEventListener('keypress', keyPressHandler);
+        };
     }, [difficulty, category]);
+
+    function keyPressHandler (event) {
+        const { code } = event;
+        switch (code) {
+            case 'KeyC': setCategory('cars');
+                break;
+            case 'KeyF': setCategory('football');
+                break;
+            case 'KeyS': setDifficulty(6);
+                break;
+            case 'KeyM': setDifficulty(9);
+                break;
+            case 'KeyL': setDifficulty(12);
+                break;
+            default: break;
+        }
+    }
 
     function changeDifficulty (num) {
         switch (num) {

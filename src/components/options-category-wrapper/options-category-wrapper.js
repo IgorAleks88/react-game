@@ -1,6 +1,6 @@
 import React from 'react';
 // import { Link } from "react-router-dom";
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import './options-category-wrapper.scss';
 import Button from '../button/button';
 
@@ -18,3 +18,8 @@ export default function OptionsCategoryWrapper (props) {
         </div>
     );
 }
+
+OptionsCategoryWrapper.propTypes = {
+    buttons: PropTypes.array,
+    categoryName: PropTypes.string
+};
