@@ -22,6 +22,10 @@ export default function Card (props) {
                     props.firstOpened.dataset.active = false;
                     props.changeFirstOpened(null);
                     props.changeSecondOpened(null);
+                    // eslint-disable-next-line max-depth
+                    if (props.victoryCheck()) {
+                        console.log("You win!");
+                    }
                 } else {
                     setTimeout(() => {
                         container.classList.remove('card-container__rotate');
@@ -57,5 +61,6 @@ Card.propTypes = {
     firstOpened: PropTypes.object,
     incrementTurnsCounter: PropTypes.func,
     item: PropTypes.string,
+    victoryCheck: PropTypes.func,
     secondOpened: PropTypes.object
 };

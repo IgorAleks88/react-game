@@ -10,6 +10,7 @@ import FooterWrapper from '../footer-wrapper/footer-wrapper';
 import StatisticWrapper from '../statistic/statistic';
 import shuffleArray from '../../utils/shuffleArray';
 import autoPlay from '../../utils/autoPlay';
+import victoryCheck from '../../utils/victoryCheck';
 
 export default function App () {
     const cardsArray = ['1', '2', '3', '4', '5', '6', '7', '8', '9',
@@ -128,7 +129,8 @@ export default function App () {
                             firstOpened = {firstOpened}
                             changeSecondOpened = {changeSecondOpened}
                             secondOpened = {secondOpened}
-                            incrementTurnsCounter = {incrementTurnsCounter}/>
+                            incrementTurnsCounter = {incrementTurnsCounter}
+                            victoryCheck = {victoryCheck}/>
                     </Route>
                     <Route path = "/stat">
                         <StatisticWrapper />
