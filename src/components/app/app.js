@@ -23,17 +23,54 @@ export default function App () {
     const [gameWrapperClass, setGameWrapperClass] = useState('game-board-wrapper game-board-wrapper__24');
     const [optionsWrapperClass, setOptionsWrapperClass] = useState('options-wrapper options-wrapper__light');
     const [footerWrapperClass, setFooterWrapperClass] = useState('footer-wrapper footer-wrapper__light');
-
-    useEffect(() => {
-        startNewGame();
-    }, [difficulty, category]);
+    const [shouldStart, setShouldStart] = useState(false);
 
     useEffect(() => {
         document.addEventListener('keypress', keyPressHandler);
+        loadStateFromStorage();
         return () => {
             document.removeEventListener('keypress', keyPressHandler);
         };
     }, []);
+
+    useEffect(() => {
+        if (shouldStart) {
+            startNewGame();
+        }
+    }, [difficulty, category, shouldStart]);
+
+    useEffect(() => {
+        writeStateToStorage();
+    });
+
+    function writeStateToStorage () {
+        const gameState = {
+            gameArray: gameArray,
+            category: category,
+            difficulty: difficulty,
+            firstOpened: firstOpened,
+            secondOpened: secondOpened,
+            turnsCounter: turnsCounter,
+            gameWrapperClass: gameWrapperClass,
+            optionsWrapperClass: optionsWrapperClass,
+            footerWrapperClass: footerWrapperClass
+        };
+        localStorage.setItem('gameState', JSON.stringify(gameState));
+    }
+
+    function loadStateFromStorage () {
+        const gameState = JSON.parse(localStorage.getItem('gameState'));
+        setGameArray(gameState.gameArray);
+        setCategory(gameState.category);
+        setDifficulty(gameState.difficulty);
+        setFirstOpened(gameState.firstOpened);
+        setSecondOpened(gameState.secondOpened);
+        setTurnsCounter(gameState.turnsCounter);
+        setGameWrapperClass(gameState.gameWrapperClass);
+        setOptionsWrapperClass(gameState.optionsWrapperClass);
+        setFooterWrapperClass(gameState.footerWrapperClass);
+        setShouldStart(false);
+    }
 
     function keyPressHandler (event) {
         const { code } = event;
@@ -127,6 +164,7 @@ export default function App () {
                     autoPlay = {autoPlay}
                     gameArray = {gameArray}
                     startNewGame = {startNewGame}
+                    setShouldStart = {setShouldStart}
                     turnsCounter = {turnsCounter}/>
                 <Switch>
                     <Route path = "/game">

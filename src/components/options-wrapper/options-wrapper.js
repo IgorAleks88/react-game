@@ -36,9 +36,11 @@ export default function OptionsWrapper (props) {
                     onClick = {() => props.autoPlay(props.gameArray, props.changeGameArray)}/>
             </div>
             <OptionsCategoryWrapper
+                setShouldStart = {props.setShouldStart}
                 categoryName = "Field size"
                 buttons = {fieldSizeButtons}/>
             <OptionsCategoryWrapper
+                setShouldStart = {props.setShouldStart}
                 categoryName = "Category"
                 buttons = {categoryButtons}/>
             <OptionsCategoryWrapper

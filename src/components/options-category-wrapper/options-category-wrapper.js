@@ -7,7 +7,7 @@ export default function OptionsCategoryWrapper (props) {
     const buttons = props.buttons.map((item) => {
         return (
             <Button name = {item.name}
-                onClick = {() => {item.onClick(item.name);}}/>
+                onClick = {() => {item.onClick(item.name); props.setShouldStart(true);}}/>
         );
     });
     return (
