@@ -14,14 +14,13 @@ import victoryCheck from '../../utils/victoryCheck';
 import cardsArray from '../cardsArray';
 
 export default function App () {
-    // const cardsArray = ['1', '2', '3', '4', '5', '6', '7', '8', '9',
-    //     '10', '11', '12', '13', '14', '15', '16', '17', '18'];
     const [gameArray, setGameArray] = useState([]);
     const [category, setCategory] = useState('football');
     const [difficulty, setDifficulty] = useState(12);
     const [firstOpened, setFirstOpened] = useState(null);
     const [secondOpened, setSecondOpened] = useState(null);
     const [turnsCounter, setTurnsCounter] = useState(0);
+    const [gameWrapperClass, setGameWrapperClass] = useState('game-board-wrapper game-board-wrapper__24');
     const [optionsWrapperClass, setOptionsWrapperClass] = useState('options-wrapper options-wrapper__light');
     const [footerWrapperClass, setFooterWrapperClass] = useState('footer-wrapper footer-wrapper__light');
 
@@ -102,24 +101,16 @@ export default function App () {
             termArr.push(newObj);
         }
 
+        for (let i = 0; i < termArr; i += 1) {
+            termArr[i].isActive = true;
+            termArr[i].isRotate = false;
+        }
+
         setGameArray(shuffleArray(termArr));
 
         // change game wrapper style depends on difficulty level
 
-        const wrapper = document.querySelector('.game-board-wrapper');
-        if (wrapper) {
-            wrapper.classList.remove('game-board-wrapper__12');
-            wrapper.classList.remove('game-board-wrapper__18');
-            wrapper.classList.remove('game-board-wrapper__24');
-            wrapper.classList.add(`game-board-wrapper__${difficulty * 2}`);
-        }
-
-        // set all cards data-active true
-        // const cardObjects = document.querySelectorAll('.card-container');
-        // Object.keys(cardObjects).forEach((card) => {
-        //     cardObjects[card].dataset.active = true;
-        //     cardObjects[card].classList.remove('card-container__rotate');
-        // });
+        setGameWrapperClass(`game-board-wrapper game-board-wrapper__${difficulty * 2}`);
 
         setTurnsCounter(0);
     }
@@ -131,6 +122,7 @@ export default function App () {
                     changeDifficulty = {changeDifficulty}
                     changeCategory = {changeCategory}
                     changeInterface = {changeInterface}
+                    changeGameArray = {changeGameArray}
                     category = {category}
                     autoPlay = {autoPlay}
                     gameArray = {gameArray}
@@ -146,7 +138,8 @@ export default function App () {
                             changeSecondOpened = {changeSecondOpened}
                             secondOpened = {secondOpened}
                             incrementTurnsCounter = {incrementTurnsCounter}
-                            victoryCheck = {victoryCheck}/>
+                            victoryCheck = {victoryCheck}
+                            gameWrapperClass = {gameWrapperClass}/>
                     </Route>
                     <Route path = "/stat">
                         <StatisticWrapper />

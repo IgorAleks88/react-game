@@ -33,7 +33,7 @@ export default function OptionsWrapper (props) {
                 </Link>
 
                 <Button name = "Autoplay"
-                    onClick = {() => props.autoPlay(props.gameArray)}/>
+                    onClick = {() => props.autoPlay(props.gameArray, props.changeGameArray)}/>
             </div>
             <OptionsCategoryWrapper
                 categoryName = "Field size"
@@ -61,6 +61,7 @@ OptionsWrapper.propTypes = {
     startNewGame: PropTypes.func,
     changeCategory: PropTypes.func,
     changeDifficulty: PropTypes.func,
+    changeGameArray: PropTypes.func,
     changeInterface: PropTypes.func,
     gameArray: PropTypes.array,
     optionsWrapperClass: PropTypes.string,

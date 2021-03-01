@@ -3,7 +3,12 @@ export default function shuffleArray (arr) {
     const result = [];
     for (let i = 0; i < arr.length; i += 1) {
         const randIndex = Math.floor(Math.random() * copyArr.length);
-        result.push(copyArr[randIndex]);
+        const newItem = {
+            item: copyArr[randIndex].item,
+            isActive: true,
+            isRotate: false
+        };
+        result.push(newItem);
         copyArr.splice(randIndex, 1);
     }
     return result;

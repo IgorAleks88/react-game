@@ -24,18 +24,21 @@ export default function GameBoardWrapper (props) {
         );
     });
     return (
-        <div className = "game-board-wrapper game-board-wrapper__24">
+        <div className = {props.gameWrapperClass}>
             {cardElements}
         </div>
     );
 }
 
 GameBoardWrapper.propTypes = {
+    changeGameArray: PropTypes.func,
     changeFirstOpened: PropTypes.func,
     changeSecondOpened: PropTypes.func,
     category: PropTypes.string,
     cards: PropTypes.array,
     firstOpened: PropTypes.object,
+    gameArray: PropTypes.array,
+    gameWrapperClass: PropTypes.string,
     incrementTurnsCounter: PropTypes.func,
     victoryCheck: PropTypes.func,
     secondOpened: PropTypes.object

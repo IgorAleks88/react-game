@@ -1,24 +1,29 @@
 /* eslint-disable no-loop-func */
-export default function autoPlay (gameArray) {
-    const cardArray = document.querySelectorAll('.card-container');
+export default function autoPlay (gameArray, setGameArray) {
     let i = 0;
     function openPairOfCards () {
         let timeout = 0;
-        const currentCard = cardArray[i];
-        if (currentCard.dataset.active === 'true') {
-            const currentItem = currentCard.dataset.item;
-            const secondCurrentItem = cardArray[gameArray.lastIndexOf(currentItem)];
-            currentCard.classList.add('card-container__rotate');
-            secondCurrentItem.classList.add('card-container__rotate');
-            currentCard.dataset.active = false;
-            secondCurrentItem.dataset.active = false;
+        const currentCard = gameArray[i];
+        if (currentCard.isActive) {
+            const newGameArray = gameArray.slice();
+            const currentItem = newGameArray[i].item;
+            for (let j = newGameArray.length - 1; j > i; j -= 1) {
+                if (newGameArray[j].item === currentItem) {
+                    newGameArray[i].isActive = false;
+                    newGameArray[j].isActive = false;
+                    newGameArray[i].isRotate = true;
+                    newGameArray[j].isRotate = true;
+                    setGameArray(newGameArray);
+                    break;
+                }
+            }
             i += 1;
             timeout = 750;
         } else {
             i += 1;
             timeout = 0;
         }
-        if (i < cardArray.length) {setTimeout(openPairOfCards, timeout);}
+        if (i < gameArray.length) {setTimeout(openPairOfCards, timeout);}
     }
     openPairOfCards();
 }
