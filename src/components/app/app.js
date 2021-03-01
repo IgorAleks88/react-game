@@ -11,12 +11,12 @@ import StatisticWrapper from '../statistic/statistic';
 import shuffleArray from '../../utils/shuffleArray';
 import autoPlay from '../../utils/autoPlay';
 import victoryCheck from '../../utils/victoryCheck';
+import cardsArray from '../cardsArray';
 
 export default function App () {
-    const cardsArray = ['1', '2', '3', '4', '5', '6', '7', '8', '9',
-        '10', '11', '12', '13', '14', '15', '16', '17', '18'];
-    const [gameArray, setGameArray] = useState(['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12',
-        '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']);
+    // const cardsArray = ['1', '2', '3', '4', '5', '6', '7', '8', '9',
+    //     '10', '11', '12', '13', '14', '15', '16', '17', '18'];
+    const [gameArray, setGameArray] = useState([]);
     const [category, setCategory] = useState('football');
     const [difficulty, setDifficulty] = useState(12);
     const [firstOpened, setFirstOpened] = useState(null);
@@ -26,12 +26,15 @@ export default function App () {
     const [footerWrapperClass, setFooterWrapperClass] = useState('footer-wrapper footer-wrapper__light');
 
     useEffect(() => {
-        document.addEventListener('keypress', keyPressHandler);
         startNewGame();
+    }, [difficulty, category]);
+
+    useEffect(() => {
+        document.addEventListener('keypress', keyPressHandler);
         return () => {
             document.removeEventListener('keypress', keyPressHandler);
         };
-    }, [difficulty, category]);
+    }, []);
 
     function keyPressHandler (event) {
         const { code } = event;
@@ -78,6 +81,10 @@ export default function App () {
         setSecondOpened(card);
     }
 
+    function changeGameArray (arr) {
+        setGameArray(arr);
+    }
+
     function incrementTurnsCounter () {
         setTurnsCounter(turnsCounter + 1);
     }
@@ -86,7 +93,15 @@ export default function App () {
         // shuffle game array
 
         let termArr = shuffleArray(cardsArray).slice(0, difficulty);
-        termArr = termArr.concat(termArr);
+        for (let i = 0; i < difficulty; i += 1) {
+            const newObj = {
+                item: termArr[i].item,
+                isActive: termArr[i].isActive,
+                isRotate: termArr[i].isRotate
+            };
+            termArr.push(newObj);
+        }
+
         setGameArray(shuffleArray(termArr));
 
         // change game wrapper style depends on difficulty level
@@ -100,11 +115,11 @@ export default function App () {
         }
 
         // set all cards data-active true
-        const cardObjects = document.querySelectorAll('.card-container');
-        Object.keys(cardObjects).forEach((card) => {
-            cardObjects[card].dataset.active = true;
-            cardObjects[card].classList.remove('card-container__rotate');
-        });
+        // const cardObjects = document.querySelectorAll('.card-container');
+        // Object.keys(cardObjects).forEach((card) => {
+        //     cardObjects[card].dataset.active = true;
+        //     cardObjects[card].classList.remove('card-container__rotate');
+        // });
 
         setTurnsCounter(0);
     }
@@ -123,8 +138,9 @@ export default function App () {
                     turnsCounter = {turnsCounter}/>
                 <Switch>
                     <Route path = "/game">
-                        <GameBoardWrapper cards = {gameArray}
+                        <GameBoardWrapper gameArray = {gameArray}
                             category = {category}
+                            changeGameArray = {changeGameArray}
                             changeFirstOpened= {changeFirstOpened}
                             firstOpened = {firstOpened}
                             changeSecondOpened = {changeSecondOpened}

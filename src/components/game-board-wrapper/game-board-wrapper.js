@@ -5,11 +5,16 @@ import Card from '../card/card';
 
 export default function GameBoardWrapper (props) {
     const category = props.category;
-    const cardElements = props.cards.map((item, index) => {
+    const cardElements = props.gameArray.map((item, index) => {
         return (
             <Card key = {index}
-                item = {item}
+                gameArray = {props.gameArray}
+                index = {index}
+                item = {item.item}
+                isActive = {item.isActive}
+                isRotate = {item.isRotate}
                 category = {category}
+                changeGameArray = {props.changeGameArray}
                 changeFirstOpened= {props.changeFirstOpened}
                 firstOpened = {props.firstOpened}
                 changeSecondOpened = {props.changeSecondOpened}
