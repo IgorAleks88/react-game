@@ -2,6 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './card.scss';
+import writeResultToStorage from '../../utils/writeResultToStorage';
 
 export default function Card (props) {
     function clickHandler (index) {
@@ -18,7 +19,7 @@ export default function Card (props) {
                     props.changeFirstOpened(null);
                     props.changeSecondOpened(null);
                     if (props.victoryCheck(newGameArray)) {
-                        console.log('You win!');
+                        writeResultToStorage(props.difficulty, props.turnsCounter);
                     }
                 } else {
                     setTimeout(() => {

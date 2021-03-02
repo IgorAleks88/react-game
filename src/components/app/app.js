@@ -172,10 +172,12 @@ export default function App () {
                             category = {category}
                             changeGameArray = {changeGameArray}
                             changeFirstOpened= {changeFirstOpened}
+                            difficulty = {difficulty}
                             firstOpened = {firstOpened}
                             changeSecondOpened = {changeSecondOpened}
                             secondOpened = {secondOpened}
                             incrementTurnsCounter = {incrementTurnsCounter}
+                            turnsCounter = {turnsCounter}
                             victoryCheck = {victoryCheck}
                             gameWrapperClass = {gameWrapperClass}/>
                     </Route>

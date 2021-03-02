@@ -16,9 +16,11 @@ export default function GameBoardWrapper (props) {
                 category = {category}
                 changeGameArray = {props.changeGameArray}
                 changeFirstOpened= {props.changeFirstOpened}
+                difficulty = {props.difficulty}
                 firstOpened = {props.firstOpened}
                 changeSecondOpened = {props.changeSecondOpened}
                 secondOpened = {props.secondOpened}
+                turnsCounter = {props.turnsCounter}
                 incrementTurnsCounter = {props.incrementTurnsCounter}
                 victoryCheck = {props.victoryCheck}/>
         );
