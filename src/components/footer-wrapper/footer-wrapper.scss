@@ -23,3 +23,9 @@
         font-size: 2rem;
     }
 }
+
+@media (max-width: 700px) {
+    .footer-wrapper__link{
+        font-size: 1.8rem; 
+    }
+}
