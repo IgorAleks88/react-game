@@ -35,15 +35,19 @@ export default function GameBoardWrapper (props) {
 }
 
 GameBoardWrapper.propTypes = {
+    changeHidden: PropTypes.func,
     changeGameArray: PropTypes.func,
     changeFirstOpened: PropTypes.func,
     changeSecondOpened: PropTypes.func,
     category: PropTypes.string,
     cards: PropTypes.array,
+    difficulty: PropTypes.number,
     firstOpened: PropTypes.object,
     gameArray: PropTypes.array,
     gameWrapperClass: PropTypes.string,
     incrementTurnsCounter: PropTypes.func,
     victoryCheck: PropTypes.func,
-    secondOpened: PropTypes.object
+    secondOpened: PropTypes.object,
+    theme: PropTypes.string,
+    turnsCounter: PropTypes.number
 };

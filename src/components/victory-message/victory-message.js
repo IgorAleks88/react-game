@@ -1,5 +1,5 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import './victory-message.scss';
 import Button from '../button/button';
 
@@ -15,3 +15,12 @@ export default function VictoryMessage (props) {
         </div>
     );
 }
+
+VictoryMessage.propTypes = {
+    startNewGame: PropTypes.func,
+    changeHidden: PropTypes.func,
+    theme: PropTypes.string,
+    scoresArray: PropTypes.array,
+    difficulty: PropTypes.number,
+    turnsCounter: PropTypes.number
+};

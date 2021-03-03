@@ -1,5 +1,5 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import './statistic-container.scss';
 
 export default function StatisticContainer (props) {
@@ -10,3 +10,9 @@ export default function StatisticContainer (props) {
         </div>
     );
 }
+
+StatisticContainer.propTypes = {
+    theme: PropTypes.string,
+    date: PropTypes.string,
+    turns: PropTypes.number
+};

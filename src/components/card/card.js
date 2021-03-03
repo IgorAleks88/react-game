@@ -51,6 +51,7 @@ export default function Card (props) {
 }
 
 Card.propTypes = {
+    changeHidden: PropTypes.func,
     changeFirstOpened: PropTypes.func,
     changeGameArray: PropTypes.func,
     changeSecondOpened: PropTypes.func,
@@ -62,5 +63,8 @@ Card.propTypes = {
     isRotate: PropTypes.bool,
     item: PropTypes.string,
     victoryCheck: PropTypes.func,
-    secondOpened: PropTypes.object
+    secondOpened: PropTypes.object,
+    turnsCounter: PropTypes.number,
+    theme: PropTypes.string,
+    difficulty: PropTypes.number
 };

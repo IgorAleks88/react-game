@@ -13,5 +13,6 @@ export default function FooterWrapper (props) {
 }
 
 FooterWrapper.propTypes = {
-    footerWrapperClass: PropTypes.string
+    footerWrapperClass: PropTypes.string,
+    theme: PropTypes.string
 };

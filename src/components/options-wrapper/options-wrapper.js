@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import './options-wrapper.scss';
 import Button from '../button/button';
 import OptionsCategoryWrapper from '../options-category-wrapper/options-category-wrapper';
+import ReactAudioPlayer from 'react-audio-player';
 
 export default function OptionsWrapper (props) {
     const fieldSizeButtons = [
@@ -52,7 +53,10 @@ export default function OptionsWrapper (props) {
                 categoryName = "Interface"
                 buttons = {interfaceButtons}/>
             <div className = "options-category-wrapper">
-                <span>Audio</span>
+                <span>Music</span>
+                <ReactAudioPlayer src={`../assets/sound/${props.category}/music.mp3`}
+                    autoPlay
+                    controls/>
             </div>
             <div className = "options-category-wrapper">
                 <Link to="/stat">
@@ -67,11 +71,14 @@ export default function OptionsWrapper (props) {
 OptionsWrapper.propTypes = {
     autoPlay: PropTypes.func,
     startNewGame: PropTypes.func,
+    category: PropTypes.string,
     changeCategory: PropTypes.func,
     changeDifficulty: PropTypes.func,
     changeGameArray: PropTypes.func,
     changeInterface: PropTypes.func,
     gameArray: PropTypes.array,
     optionsWrapperClass: PropTypes.string,
-    turnsCounter: PropTypes.number
+    turnsCounter: PropTypes.number,
+    theme: PropTypes.string,
+    setShouldStart: PropTypes.bool
 };

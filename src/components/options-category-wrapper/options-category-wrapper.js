@@ -4,9 +4,10 @@ import './options-category-wrapper.scss';
 import Button from '../button/button';
 
 export default function OptionsCategoryWrapper (props) {
-    const buttons = props.buttons.map((item) => {
+    const buttons = props.buttons.map((item, index) => {
         return (
-            <Button name = {item.name}
+            <Button key = {index}
+                name = {item.name}
                 theme = {props.theme}
                 onClick = {() => {item.onClick(item.name); props.setShouldStart(true);}}/>
         );
@@ -21,5 +22,7 @@ export default function OptionsCategoryWrapper (props) {
 
 OptionsCategoryWrapper.propTypes = {
     buttons: PropTypes.array,
-    categoryName: PropTypes.string
+    categoryName: PropTypes.string,
+    theme: PropTypes.string,
+    setShouldStart: PropTypes.bool
 };

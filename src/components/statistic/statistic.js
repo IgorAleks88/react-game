@@ -1,5 +1,5 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import './statistic.scss';
 import StatisticCategoryWrapper from '../statisitic-category-wrapper/statistic-category-wrapper';
 
@@ -27,3 +27,7 @@ export default function StatisticWrapper (props) {
         </div>
     );
 }
+
+StatisticWrapper.propTypes = {
+    theme: PropTypes.string
+};
