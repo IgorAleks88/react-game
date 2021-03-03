@@ -195,7 +195,10 @@ export default function App () {
                     </Route>
                 </Switch>
                 <VictoryMessage theme = {theme}
-                    hidden = {hidden}/>
+                    hidden = {hidden}
+                    turnsCounter = {turnsCounter}
+                    changeHidden = {changeHidden}
+                    startNewGame = {startNewGame}/>
                 <FooterWrapper theme = {theme} />
             </div>
         </Router>

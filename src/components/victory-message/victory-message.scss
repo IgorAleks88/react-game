@@ -1,6 +1,10 @@
 @import "../../constants.scss";
 
 .victory-message-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
     width: 40%;
     height: 40%;
     position: absolute;
@@ -23,4 +27,12 @@
 
 .hidden {
     visibility: hidden;
+}
+
+.victory-message-header{
+    font-size: 2rem;
+}
+
+.victory-message-counter{
+    font-size: 1.5rem;
 }

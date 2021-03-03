@@ -5,7 +5,7 @@ import StatisticHeader from '../statistic-header/statistic-header';
 import StatisticContainer from '../statistic-container/statistic-container';
 
 export default function StatisticCategoryWrapper (props) {
-    const scores = props.scoresArray.map((item) => {
+    const scores = props.scoresArray.sort((a, b) => {return (a.turns > b.turns) ? 1 : -1;}).map((item) => {
         return (
             <StatisticContainer date = {item.date}
                 turns = {item.turns}
