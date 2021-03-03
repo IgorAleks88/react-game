@@ -20,6 +20,7 @@ export default function Card (props) {
                     props.changeSecondOpened(null);
                     if (props.victoryCheck(newGameArray)) {
                         writeResultToStorage(props.difficulty, props.turnsCounter);
+                        props.changeHidden('');
                     }
                 } else {
                     setTimeout(() => {

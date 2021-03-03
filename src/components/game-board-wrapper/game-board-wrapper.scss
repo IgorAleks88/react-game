@@ -4,7 +4,9 @@
     // border: 2px solid #f00;
     color: #000;
     display: grid;
-
+    align-items: center;
+    justify-items: center;
+    
     &__12 {
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(3, 1fr);

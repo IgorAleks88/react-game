@@ -12,6 +12,7 @@ import shuffleArray from '../../utils/shuffleArray';
 import autoPlay from '../../utils/autoPlay';
 import victoryCheck from '../../utils/victoryCheck';
 import cardsArray from '../cardsArray';
+import VictoryMessage from '../victory-message/victory-message';
 
 export default function App () {
     const [gameArray, setGameArray] = useState([]);
@@ -25,6 +26,7 @@ export default function App () {
     const [optionsWrapperClass, setOptionsWrapperClass] = useState('options-wrapper options-wrapper__light');
     const [footerWrapperClass, setFooterWrapperClass] = useState('footer-wrapper footer-wrapper__light');
     const [shouldStart, setShouldStart] = useState(false);
+    const [hidden, setHidden] = useState('hidden');
 
     useEffect(() => {
         document.addEventListener('keypress', keyPressHandler);
@@ -121,6 +123,10 @@ export default function App () {
         setGameArray(arr);
     }
 
+    function changeHidden (str) {
+        setHidden(str);
+    }
+
     function incrementTurnsCounter () {
         setTurnsCounter(turnsCounter + 1);
     }
@@ -173,6 +179,7 @@ export default function App () {
                             category = {category}
                             changeGameArray = {changeGameArray}
                             changeFirstOpened= {changeFirstOpened}
+                            changeHidden = {changeHidden}
                             difficulty = {difficulty}
                             firstOpened = {firstOpened}
                             changeSecondOpened = {changeSecondOpened}
@@ -187,6 +194,8 @@ export default function App () {
                         <StatisticWrapper theme = {theme}/>
                     </Route>
                 </Switch>
+                <VictoryMessage theme = {theme}
+                    hidden = {hidden}/>
                 <FooterWrapper theme = {theme} />
             </div>
         </Router>

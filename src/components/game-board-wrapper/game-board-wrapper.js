@@ -14,6 +14,7 @@ export default function GameBoardWrapper (props) {
                 isActive = {item.isActive}
                 isRotate = {item.isRotate}
                 category = {category}
+                changeHidden = {props.changeHidden}
                 changeGameArray = {props.changeGameArray}
                 changeFirstOpened= {props.changeFirstOpened}
                 difficulty = {props.difficulty}
