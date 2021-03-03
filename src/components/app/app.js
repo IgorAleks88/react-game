@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {
-    BrowserRouter as Router,
+    HashRouter as Router,
     Switch,
     Route
 } from "react-router-dom";
@@ -20,6 +20,7 @@ export default function App () {
     const [firstOpened, setFirstOpened] = useState(null);
     const [secondOpened, setSecondOpened] = useState(null);
     const [turnsCounter, setTurnsCounter] = useState(0);
+    const [theme, setTheme] = useState('light');
     const [gameWrapperClass, setGameWrapperClass] = useState('game-board-wrapper game-board-wrapper__24');
     const [optionsWrapperClass, setOptionsWrapperClass] = useState('options-wrapper options-wrapper__light');
     const [footerWrapperClass, setFooterWrapperClass] = useState('footer-wrapper footer-wrapper__light');
@@ -105,8 +106,7 @@ export default function App () {
     }
 
     function changeInterface (name) {
-        setOptionsWrapperClass(`options-wrapper options-wrapper__${name}`);
-        setFooterWrapperClass(`footer-wrapper footer-wrapper__${name}`);
+        setTheme(name);
     }
 
     function changeFirstOpened (card) {
@@ -158,6 +158,7 @@ export default function App () {
                     optionsWrapperClass = {optionsWrapperClass}
                     changeDifficulty = {changeDifficulty}
                     changeCategory = {changeCategory}
+                    theme = {theme}
                     changeInterface = {changeInterface}
                     changeGameArray = {changeGameArray}
                     category = {category}
@@ -177,15 +178,16 @@ export default function App () {
                             changeSecondOpened = {changeSecondOpened}
                             secondOpened = {secondOpened}
                             incrementTurnsCounter = {incrementTurnsCounter}
+                            theme = {theme}
                             turnsCounter = {turnsCounter}
                             victoryCheck = {victoryCheck}
                             gameWrapperClass = {gameWrapperClass}/>
                     </Route>
                     <Route path = "/stat">
-                        <StatisticWrapper />
+                        <StatisticWrapper theme = {theme}/>
                     </Route>
                 </Switch>
-                <FooterWrapper footerWrapperClass = {footerWrapperClass} />
+                <FooterWrapper theme = {theme} />
             </div>
         </Router>
     );

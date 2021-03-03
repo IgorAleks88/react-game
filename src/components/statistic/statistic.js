@@ -13,11 +13,11 @@ export default function StatisticWrapper (props) {
     if (localStorage.getItem('gameStatistic')) {
         statistic = JSON.parse(localStorage.getItem('gameStatistic'));
     }
-    console.log(statistic[6][0]);
     const categories = Object.keys(statistic).map((item) => {
         return (
             <StatisticCategoryWrapper difficulty = {item}
                 scoresArray = {statistic[item]}
+                theme = {props.theme}
             />
         );
     });

@@ -21,7 +21,7 @@ export default function OptionsWrapper (props) {
     ];
 
     return (
-        <div className = {props.optionsWrapperClass}>
+        <div className = {`options-wrapper options-wrapper__${props.theme}`}>
             <div className = "options-category-wrapper">
                 <span>Turns: {props.turnsCounter}</span>
             </div>
@@ -29,21 +29,26 @@ export default function OptionsWrapper (props) {
                 <span>Game</span>
                 <Link to="/game">
                     <Button name = "Start"
+                        theme = {props.theme}
                         onClick = {() => props.startNewGame()}/>
                 </Link>
 
                 <Button name = "Autoplay"
+                    theme = {props.theme}
                     onClick = {() => props.autoPlay(props.gameArray, props.changeGameArray)}/>
             </div>
             <OptionsCategoryWrapper
+                theme = {props.theme}
                 setShouldStart = {props.setShouldStart}
                 categoryName = "Field size"
                 buttons = {fieldSizeButtons}/>
             <OptionsCategoryWrapper
+                theme = {props.theme}
                 setShouldStart = {props.setShouldStart}
                 categoryName = "Category"
                 buttons = {categoryButtons}/>
             <OptionsCategoryWrapper
+                theme = {props.theme}
                 categoryName = "Interface"
                 buttons = {interfaceButtons}/>
             <div className = "options-category-wrapper">
@@ -51,7 +56,8 @@ export default function OptionsWrapper (props) {
             </div>
             <div className = "options-category-wrapper">
                 <Link to="/stat">
-                    <Button name = "Statistic" />
+                    <Button name = "Statistic"
+                        theme = {props.theme} />
                 </Link>
             </div>
         </div>

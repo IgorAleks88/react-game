@@ -1,3 +1,5 @@
+@import "../../constants.scss";
+
 .options-category-wrapper {
     display: flex;
     font-size: 1.2rem;
@@ -7,8 +9,11 @@
     // border: 1px solid black;
     width: 12%;
     height: 100%;
-    &__header {
-        color: blue;
+    &__header-light {
+        color:$color-main-light;
+    }
+    &__header-dark {
+        color:$color-main-dark;
     }
 }
 

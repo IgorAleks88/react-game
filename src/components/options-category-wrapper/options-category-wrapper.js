@@ -7,12 +7,13 @@ export default function OptionsCategoryWrapper (props) {
     const buttons = props.buttons.map((item) => {
         return (
             <Button name = {item.name}
+                theme = {props.theme}
                 onClick = {() => {item.onClick(item.name); props.setShouldStart(true);}}/>
         );
     });
     return (
         <div className = "options-category-wrapper">
-            <span className = "options-category-wrapper__header">{props.categoryName}</span>
+            <span className = {`options-category-wrapper__header-${props.theme}`}>{props.categoryName}</span>
             {buttons}
         </div>
     );

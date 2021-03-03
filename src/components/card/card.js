@@ -39,10 +39,10 @@ export default function Card (props) {
     return (
         <div className = {props.isRotate ? "card-container card-container__rotate" : "card-container"}
             onClick = {() => {clickHandler(props.index);}}>
-            <div className = "card-front"
+            <div className = {`card-front card-front__${props.theme}`}
                 style = {{ backgroundImage: `url(/assets/img/${props.category}/${props.item}.png)` }}
             />
-            <div className = "card-back"
+            <div className = {`card-back card-back__${props.theme}`}
                 style = {{ backgroundImage: `url(/assets/img/${props.category}/background.png)` }}
             />
         </div>
