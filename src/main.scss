@@ -1,0 +1,55 @@
+* {
+    box-sizing: border-box
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+}
+
+h1 {
+    color:tomato;
+}
+#root{
+    // background-color: #0f0;
+    height: 100%;
+    width: 100%; 
+}
+.main-wrapper{
+    height: 100%;
+    width: 100%;
+}
+
+audio {
+    width: 100%;
+    height: 20%;
+  }
+  
+  audio::-webkit-media-controls-panel {
+    -webkit-justify-content: center;
+    // height: 25px;
+  }
+  
+  /* Removes the timeline */
+  audio::-webkit-media-controls-timeline {
+    display: none !important;
+  }
+  
+  /* Removes the time stamp */
+  audio::-webkit-media-controls-current-time-display {
+    display: none;
+  }
+  audio::-webkit-media-controls-time-remaining-display {
+    display: none;
+  }
+
+  audio::-webkit-media-controls-play-button {
+    display: none;
+  }
+
+  audio::-webkit-media-controls-toggle-closed-captions-button {
+    display: none;
+  }
+  

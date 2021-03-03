@@ -1,0 +1,39 @@
+@import "../../constants.scss";
+
+.victory-message-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 40%;
+    height: 40%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-style: solid;
+    border-width: 2px;
+    transform: translate(-50%, -50%);
+    font-family: $font-family;
+    &__light {
+        background-color: $color-back-light;
+        border-color: $color-main-light;
+        color: $color-main-light;
+    }
+    &__dark {
+        background-color: $color-back-dark;
+        border-color: $color-main-dark;
+        color:$color-main-dark;
+    }
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.victory-message-header{
+    font-size: 2rem;
+}
+
+.victory-message-counter{
+    font-size: 1.5rem;
+}
